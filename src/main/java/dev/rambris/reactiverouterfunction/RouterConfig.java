@@ -28,6 +28,7 @@ public class RouterConfig {
     }
 
     private Mono<ServerResponse> handler(ServerRequest serverRequest) {
-        return ServerResponse.ok().bodyValue("Fetched from backend somehow");
+        return svc.fetchContent(serverRequest.pathVariable("typeSlug"))
+                .flatMap(content -> ServerResponse.ok().bodyValue(content));
     }
 }
