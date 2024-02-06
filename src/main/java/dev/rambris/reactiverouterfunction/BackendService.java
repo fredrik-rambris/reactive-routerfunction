@@ -11,7 +11,7 @@ public class BackendService {
     private final Random random = new Random();
 
     public Mono<Boolean> doesTypeSlugExist(String typeSlug) {
-        // Query database or other service to check if typeSlug exists
+        // Query database or other service to check if typeSlug exists, probably cached
         return Mono.just(true).delayElement(Duration.ofMillis(500));
     }
 
